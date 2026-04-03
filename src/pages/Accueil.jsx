@@ -53,7 +53,7 @@ function Accueil() {
       <div
         className="text-white py-24 px-6 relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/bg-connexion.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/bg-connexion.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -287,40 +287,51 @@ function Accueil() {
       </div>
 
       {/* Footer */}
-<footer className="bg-green-900 text-white py-12 px-6 mt-20">
-    <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <footer className="bg-green-900 text-white py-12 px-6 mt-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Logo + description */}
             <div>
-                <p className="text-xl font-bold mb-2">🌱 AgroConnect Bénin</p>
-                <p className="text-green-300 text-sm">
-                    La plateforme qui valorise nos terres et soutient nos agriculteurs en éliminant les intermédiaires.
-                </p>
+              <p className="text-xl font-bold mb-2">🌱 AgroConnect Bénin</p>
+              <p className="text-green-300 text-sm">
+                La plateforme qui valorise nos terres et soutient nos
+                agriculteurs en éliminant les intermédiaires.
+              </p>
             </div>
             {/* Liens */}
             <div>
-                <p className="font-bold mb-3 text-green-300 uppercase text-xs tracking-wider">Navigation</p>
-                <div className="flex flex-col gap-2 text-sm text-green-200">
-                    <a href="/" className="hover:text-white transition">🏠 Accueil</a>
-                    <a href="/inscription" className="hover:text-white transition">📝 S'inscrire</a>
-                    <a href="/connexion" className="hover:text-white transition">🔐 Se connecter</a>
-                </div>
+              <p className="font-bold mb-3 text-green-300 uppercase text-xs tracking-wider">
+                Navigation
+              </p>
+              <div className="flex flex-col gap-2 text-sm text-green-200">
+                <a href="/" className="hover:text-white transition">
+                  🏠 Accueil
+                </a>
+                <a href="/inscription" className="hover:text-white transition">
+                  📝 S'inscrire
+                </a>
+                <a href="/connexion" className="hover:text-white transition">
+                  🔐 Se connecter
+                </a>
+              </div>
             </div>
             {/* Contact */}
             <div>
-                <p className="font-bold mb-3 text-green-300 uppercase text-xs tracking-wider">Contact</p>
-                <div className="flex flex-col gap-2 text-sm text-green-200">
-                    <p>📍 Cotonou, Bénin</p>
-                    <p>📧 contact@agroconnect.bj</p>
-                    <p>📞 +229 00 00 00 00</p>
-                </div>
+              <p className="font-bold mb-3 text-green-300 uppercase text-xs tracking-wider">
+                Contact
+              </p>
+              <div className="flex flex-col gap-2 text-sm text-green-200">
+                <p>📍 Cotonou, Bénin</p>
+                <p>📧 contact@agroconnect.bj</p>
+                <p>📞 +229 00 00 00 00</p>
+              </div>
             </div>
-        </div>
-        <div className="border-t border-green-800 pt-6 text-center text-green-500 text-xs">
+          </div>
+          <div className="border-t border-green-800 pt-6 text-center text-green-500 text-xs">
             &copy; 2026 AgroConnect — République du Bénin · Tous droits réservés
+          </div>
         </div>
-    </div>
-</footer>
+      </footer>
     </div>
   );
 }

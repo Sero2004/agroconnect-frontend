@@ -105,7 +105,7 @@ function ModifierProduit() {
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative py-10 px-4"
-      style={{ backgroundImage: `url('/src/assets/bg-connexion.jpg')` }}
+      style={{ backgroundImage: `url('/bg-connexion.jpg')` }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>

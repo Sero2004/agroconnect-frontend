@@ -30,7 +30,7 @@ function Connexion() {
     <div
       className="min-h-screen flex items-center justify-center bg-no-repeat bg-cover bg-center relative"
       style={{
-        backgroundImage: `url('/src/assets/fresh-vegetables-fruit-market-stall.jpg')`,
+        backgroundImage: `url('/fresh-vegetables-fruit-market-stall.jpg')`,
       }}
     >
       {/* Overlay sombre pour améliorer le contraste */}

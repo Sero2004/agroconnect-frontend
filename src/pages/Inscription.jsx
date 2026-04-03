@@ -75,7 +75,7 @@ function Inscription() {
     <div
       className="min-h-screen flex items-start justify-center bg-no-repeat bg-cover bg-center relative py-8 overflow-y-auto"
       style={{
-        backgroundImage: `url('/src/assets/fresh-vegetables-fruit-market-stall.jpg')`,
+        backgroundImage: `url('/fresh-vegetables-fruit-market-stall.jpg')`,
       }}
     >
       <div className="absolute inset-0 bg-black/40"></div>
