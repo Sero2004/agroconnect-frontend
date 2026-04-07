@@ -36,6 +36,15 @@ function Accueil() {
   ];
 
   const handleAchat = async (produit) => {
+    // 1. Récupérer le token
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Vous devez être connecté pour acheter un produit.");
+      // Optionnel : rediriger vers /connexion
+      return;
+    }
+
     try {
       const response = await fetch(
         "https://agroconnect-backend-djtm.onrender.com/api/paiement/creer",
@@ -43,24 +52,36 @@ function Accueil() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            // 2. ENVOYER LE TOKEN ICI (Très important)
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             montant: produit.prix,
             produit_id: produit.id,
-            // Ces infos viennent normalement de ton state utilisateur (AuthContext)
-            email_client: "client@mail.com",
-            nom_client: "Acheteur Agro",
+            // Récupère les infos réelles si tu les as, sinon laisse FedaPay les demander au client
+            email_client:
+              localStorage.getItem("userEmail") || "client@agroconnect.com",
+            nom_client:
+              localStorage.getItem("userName") || "Acheteur AgroConnect",
           }),
         },
       );
 
+      if (response.status === 401) {
+        alert("Votre session a expiré. Veuillez vous reconnecter.");
+        return;
+      }
+
       const data = await response.json();
+
       if (data.url) {
         window.location.href = data.url; // Redirection vers FedaPay
+      } else {
+        console.error("L'URL de paiement est manquante dans la réponse");
       }
     } catch (error) {
-      alert("Erreur de connexion au service de paiement");
+      console.error("Erreur lors de l'appel API:", error);
+      alert("Une erreur est survenue lors de la préparation du paiement.");
     }
   };
 
