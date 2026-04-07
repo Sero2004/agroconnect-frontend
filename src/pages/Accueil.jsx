@@ -35,6 +35,35 @@ function Accueil() {
     { label: "Épices", emoji: "🌶️", valeur: "epice" },
   ];
 
+  const handleAchat = async (produit) => {
+    try {
+      const response = await fetch(
+        "https://agroconnect-backend-djtm.onrender.com/api/paiement/creer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            montant: produit.prix,
+            produit_id: produit.id,
+            // Ces infos viennent normalement de ton state utilisateur (AuthContext)
+            email_client: "client@mail.com",
+            nom_client: "Acheteur Agro",
+          }),
+        },
+      );
+
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url; // Redirection vers FedaPay
+      }
+    } catch (error) {
+      alert("Erreur de connexion au service de paiement");
+    }
+  };
+
   const produitsFiltres = produits.filter((p) => {
     const matchRecherche = p.nom
       ?.toLowerCase()
