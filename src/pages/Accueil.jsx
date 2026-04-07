@@ -277,14 +277,14 @@ function Accueil() {
                           💬
                         </a>
                       </div>
-                      {/* BOUTON ACHETER PRINCIPAL */}
-                      <button
-                        onClick={() => handleAchat(produit)}
-                        className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-md shadow-green-100 transition-all active:scale-95 flex items-center justify-center gap-2"
-                      >
-                        <span>🛒</span> Passer commande
-                      </button>
                     </div>
+                    {/* BOUTON ACHETER PRINCIPAL */}
+                    <button
+                      onClick={() => handleAchat(produit)}
+                      className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-md shadow-green-100 transition-all active:scale-95 flex items-center justify-center gap-2"
+                    >
+                      <span>🛒</span> Passer commande
+                    </button>
                   </div>
                 </div>
               </div>
