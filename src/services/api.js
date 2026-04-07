@@ -4,11 +4,12 @@ const api = axios.create({
     baseURL: 'https://agroconnect-backend-djtm.onrender.com/api'
 })
 
-// Ajoute automatiquement le token JWT à chaque requête
+// Ajoute automatiquement le token JWT avec le format correct
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token')
     if (token) {
-        config.headers.authorization = token
+        // AJOUT DE "Bearer " AVEC L'ESPACE
+        config.headers.Authorization = `Bearer ${token}` 
     }
     return config
 })
