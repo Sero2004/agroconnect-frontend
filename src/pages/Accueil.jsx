@@ -172,7 +172,7 @@ function Accueil() {
                 [
                   ...new Set(
                     produits
-                      .map((p) => p.id_users)
+                      .map((p) => p.user_id)
                       .filter((id) => id !== undefined && id !== null),
                   ),
                 ].length
