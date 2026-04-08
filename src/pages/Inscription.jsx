@@ -14,6 +14,7 @@ function Inscription() {
   });
   const [erreur, setErreur] = useState("");
   const [succes, setSucces] = useState("");
+  const [chargement, setChargement] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -60,7 +61,9 @@ function Inscription() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErreur(""); // 👈 efface l'erreur avant chaque tentative
+    if (chargement) return; // sécurité supplémentaire
+    setChargement(true);
+    setErreur("");
     setSucces("");
     try {
       await api.post("/auth/inscription", form);
@@ -68,6 +71,8 @@ function Inscription() {
       setTimeout(() => navigate("/connexion"), 1500);
     } catch (err) {
       setErreur(err.response?.data?.message || "Erreur inscription");
+    } finally {
+      setChargement(false);
     }
   };
 
@@ -244,9 +249,10 @@ function Inscription() {
           {/* Bouton Submit */}
           <button
             type="submit"
-            className="bg-green-600 hover:bg-green-500 text-white py-3 rounded-xl font-bold transform active:scale-95 transition-all shadow-lg mt-2 border border-green-400/50"
+            disabled={chargement}
+            className="bg-green-600 hover:bg-green-500 disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-xl font-bold transform active:scale-95 transition-all shadow-lg mt-2 border border-green-400/50"
           >
-            Créer mon compte
+            {chargement ? "Inscription en cours..." : "Créer mon compte"}
           </button>
         </form>
 
