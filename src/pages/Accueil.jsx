@@ -148,31 +148,39 @@ function Accueil() {
               </select>
             </div>
           </div>
+        </div>
 
-          {/* Stats dans le hero */}
-          <div className="flex justify-center gap-8">
-            <div className="text-center">
-              <p className="text-3xl font-black">{produits.length}</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider">
-                Produits
-              </p>
-            </div>
-            <div className="w-px bg-white/20"></div>
-            <div className="text-center">
-              <p className="text-3xl font-black">{villes.length}</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider">
-                Villes
-              </p>
-            </div>
-            <div className="w-px bg-white/20"></div>
-            <div className="text-center">
-              <p className="text-3xl font-black">
-                {[...new Set(produits.map((p) => p.id_users))].length}
-              </p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider">
-                Agriculteurs
-              </p>
-            </div>
+        {/* Stats dans le hero */}
+        <div className="flex justify-center gap-8">
+          <div className="text-center">
+            <p className="text-3xl font-black">{produits.length}</p>
+            <p className="text-xs text-gray-300 uppercase tracking-wider">
+              Produits
+            </p>
+          </div>
+          <div className="w-px bg-white/20"></div>
+          <div className="text-center">
+            <p className="text-3xl font-black">{villes.length}</p>
+            <p className="text-xs text-gray-300 uppercase tracking-wider">
+              Villes
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl font-black">
+              {/* On filtre pour être sûr de n'avoir que des nombres valides */}
+              {
+                [
+                  ...new Set(
+                    produits
+                      .map((p) => p.id_users)
+                      .filter((id) => id !== undefined && id !== null),
+                  ),
+                ].length
+              }
+            </p>
+            <p className="text-xs text-gray-300 uppercase tracking-wider">
+              Agriculteurs
+            </p>
           </div>
         </div>
       </div>
