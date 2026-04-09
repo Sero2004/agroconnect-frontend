@@ -63,7 +63,8 @@ function Accueil() {
             produit_id: produit.id,
             // Récupère les infos réelles si tu les as, sinon laisse FedaPay les demander au client
             email_client: user.email,
-            nom_client: user.nom + " " + user.prenoms,
+            nom_client: user.nom,
+            prenom_client: user.prenoms,
           }),
         },
       );
