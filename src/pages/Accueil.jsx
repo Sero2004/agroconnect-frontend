@@ -35,6 +35,8 @@ function Accueil() {
     { label: "Épices", emoji: "🌶️", valeur: "epice" },
   ];
 
+  const {user} = useAuth(); 
+    // Assure-toi que ce hook est bien défini et fonctionne pour récupérer les infos utilisateur
   const handleAchat = async (produit) => {
     // 1. Récupérer le token
     const token = localStorage.getItem("token");
@@ -59,28 +61,18 @@ function Accueil() {
             montant: produit.prix,
             produit_id: produit.id,
             // Récupère les infos réelles si tu les as, sinon laisse FedaPay les demander au client
-            email_client:
-              localStorage.getItem("userEmail") || "client@agroconnect.com",
-            nom_client:
-              localStorage.getItem("userName") || "Acheteur AgroConnect",
+            email_client: user.email,
+            nom_client:user.nom + " " + user.prenoms
           }),
         },
       );
-
-      if (response.status === 401) {
-        alert("Votre session a expiré. Veuillez vous reconnecter.");
-        return;
-      }
-
       const data = await response.json();
 
       if (data.url) {
         window.location.href = data.url; // Redirection vers FedaPay
-      } else {
-        console.error("L'URL de paiement est manquante dans la réponse");
       }
     } catch (error) {
-      console.error("Erreur lors de l'appel API:", error);
+      console.error("Erreur paiement :", error);
       alert("Une erreur est survenue lors de la préparation du paiement.");
     }
   };
