@@ -60,7 +60,7 @@ function Accueil() {
           },
           body: JSON.stringify({
             montant: produit.prix,
-            produit_id: produit.id,
+            produit_id: produit.nom,
             // Récupère les infos réelles si tu les as, sinon laisse FedaPay les demander au client
             email_client: user.email,
             nom_client: user.nom,
