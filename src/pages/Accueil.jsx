@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
 
 function Accueil() {
@@ -35,8 +36,8 @@ function Accueil() {
     { label: "Épices", emoji: "🌶️", valeur: "epice" },
   ];
 
-  const {user} = useAuth(); 
-    // Assure-toi que ce hook est bien défini et fonctionne pour récupérer les infos utilisateur
+  const { user } = useAuth();
+  // Assure-toi que ce hook est bien défini et fonctionne pour récupérer les infos utilisateur
   const handleAchat = async (produit) => {
     // 1. Récupérer le token
     const token = localStorage.getItem("token");
@@ -62,7 +63,7 @@ function Accueil() {
             produit_id: produit.id,
             // Récupère les infos réelles si tu les as, sinon laisse FedaPay les demander au client
             email_client: user.email,
-            nom_client:user.nom + " " + user.prenoms
+            nom_client: user.nom + " " + user.prenoms,
           }),
         },
       );
