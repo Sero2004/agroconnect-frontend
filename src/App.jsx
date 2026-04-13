@@ -7,10 +7,9 @@ import Admin from "./pages/Admin";
 import Connexion from "./pages/Connexion";
 import Dashboard from "./pages/Dashboard";
 import Inscription from "./pages/Inscription";
+import ModifierProduit from "./pages/ModifierProduit";
 import PaiementSucces from "./pages/PaiementSucces";
 import PublierProduit from "./pages/PublierProduit";
-
-// ... (tes autres imports)
 
 function App() {
   const location = useLocation();
