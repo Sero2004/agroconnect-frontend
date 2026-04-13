@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Inscription from "./pages/Inscription";
 import PaiementSucces from "./pages/PaiementSucces";
 import PublierProduit from "./pages/PublierProduit";
+
 // ... (tes autres imports)
 
 function App() {
@@ -62,6 +63,15 @@ function App() {
           element={
             <ProtectedRoute roles={["agriculteur"]}>
               <PublierProduit />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/modifier"
+          element={
+            <ProtectedRoute roles={["agriculteur"]}>
+              <ModifierProduit />
             </ProtectedRoute>
           }
         />
