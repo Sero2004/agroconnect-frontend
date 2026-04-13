@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useAuth } from "./context/AuthContext"; // 1. Importe useAuth
 import Accueil from "./pages/Accueil";
+import Connexion from "./pages/Connexion";
 import PaiementSucces from "./pages/PaiementSucces";
 // ... (tes autres imports)
 
