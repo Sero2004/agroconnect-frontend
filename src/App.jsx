@@ -67,7 +67,7 @@ function App() {
         />
 
         <Route
-          path="/modifier"
+          path="/modifier-produit/:id"
           element={
             <ProtectedRoute roles={["agriculteur"]}>
               <ModifierProduit />
