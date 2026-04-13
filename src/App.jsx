@@ -5,8 +5,10 @@ import { useAuth } from "./context/AuthContext"; // 1. Importe useAuth
 import Accueil from "./pages/Accueil";
 import Admin from "./pages/Admin";
 import Connexion from "./pages/Connexion";
+import Dashboard from "./pages/Dashboard";
 import Inscription from "./pages/Inscription";
 import PaiementSucces from "./pages/PaiementSucces";
+import PublierProduit from "./pages/PublierProduit";
 // ... (tes autres imports)
 
 function App() {
@@ -46,6 +48,23 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute roles={["agriculteur"]}>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/publier"
+          element={
+            <ProtectedRoute roles={["agriculteur"]}>
+              <PublierProduit />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Pages admin seulement */}
         <Route
@@ -58,8 +77,8 @@ function App() {
         />
 
         {/* Redirection par défaut */}
-        <Route path="*" element={<Navigate to="/connexion" />} />
         <Route path="/paiement-succes" element={<PaiementSucces />} />
+        <Route path="*" element={<Navigate to="/connexion" />} />
       </Routes>
     </>
   );
