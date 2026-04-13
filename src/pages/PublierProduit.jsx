@@ -82,6 +82,10 @@ function PublierProduit() {
       setErreur("Le prix doit être supérieur à 0.");
       return;
     }
+    if (Number(form.quantite) <= 0) {
+      setErreur("La quantité doit être supérieure à 0.");
+      return;
+    }
     setChargement(true);
     try {
       let photoUrl = "";
